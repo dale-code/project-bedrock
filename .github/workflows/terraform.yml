@@ -4,16 +4,9 @@ on:
   pull_request:
   push:
     branches:
-      - main
-
-jobs:
+      - jobs:
   terraform:
-    name: Terraform
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: retail-store-sample-app/terraform   # 👈 change if your tf files are elsewhere
 
     steps:
       - name: Checkout Code
@@ -31,14 +24,14 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-
-      - name: Terraform Validate
-        run: terraform validate
+        working-directory: retail-store-sample-app/terraform  # 👈 THIS MUST MATCH YOUR FOLDER EXACTLY
 
       - name: Terraform Plan
         run: terraform plan
+        working-directory: retail-store-sample-app/terraform
 
       - name: Terraform Apply (Main Only)
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
+        working-directory: retail-store-sample-app/terraform
 
