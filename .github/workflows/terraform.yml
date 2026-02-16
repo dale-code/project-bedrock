@@ -3,7 +3,8 @@ name: Terraform CI/CD
 on:
 pull_request:
 push:
-branches: [main]
+branches:
+- main
 
 jobs:
 terraform:
