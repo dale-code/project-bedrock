@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: project-bedrock   # 👈 change if your tf files are elsewhere
+        working-directory: retail-store-sample-app/terraform   # 👈 change if your tf files are elsewhere
 
     steps:
       - name: Checkout Code
