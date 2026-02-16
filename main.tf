@@ -109,9 +109,9 @@ resource "aws_lambda_function" "processor" {
   role          = aws_iam_role.lambda_role.arn
   runtime       = "python3.11"
   handler       = "handler.lambda_handler"
-  filename      = "lambda/function.zip"
+  filename      = "function.zip"
 
-  source_code_hash = filebase64sha256("lambda/function.zip")
+  source_code_hash = filebase64sha256("function.zip")
 
   tags = {
     Project = "Bedrock"

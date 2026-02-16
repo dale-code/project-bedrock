@@ -22,8 +22,7 @@ jobs:
       - name: Zip Lambda
         run:  |
           cd lambda
-          zip function.zip lambda.py
-          cd ..
+          zip ../function.zip lambda.py
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
