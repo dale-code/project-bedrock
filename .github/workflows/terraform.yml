@@ -19,6 +19,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Zip Lambda
+        run:  |
+          cd lamda
+          zip function.zip lambda.py
+          cd ..
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
